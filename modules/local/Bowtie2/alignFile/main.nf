@@ -8,14 +8,16 @@ process alignFile {
 
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
     
-    //publishDir "$params.outdir/BAM", mode: 'copy'
+    publishDir "$params.outdir/BAM", mode: 'copy'
 
     input:
 	tuple (val(fastq_name), path(input_fastq))
 	path refFile
-
+	tuple (path(b1), path(b2), path(b3), path(b4))
+	tuple (path(brev1), path(brev2)
+)
     output:
-	path "*.bam"
+	path "*.sam"
 
     script:
     """
