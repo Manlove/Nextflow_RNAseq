@@ -19,6 +19,6 @@ process featureCounts {
 
     script:
     """
-    featureCounts -p --countReadPairs -T 4 -t exon -g gene_id -a ${annotationFile} -o feature_counts.txt ${bamFiles}
+    featureCounts -F GTF -p --countReadPairs -T 4 -t exon -g gene_id -a ${annotationFile} -o feature_counts.txt ${bamFiles}
     """
 }
