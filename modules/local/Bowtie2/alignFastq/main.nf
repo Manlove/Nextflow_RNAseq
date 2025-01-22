@@ -12,7 +12,7 @@ process ALIGNFASTQ {
 	tuple (val(fastq_name), path(input_fastq))
 	path(refFile)
     output:
-	path "*.sam"
+	path "${fastq_name}.sam", emit: samFile
 
     script:
     """
