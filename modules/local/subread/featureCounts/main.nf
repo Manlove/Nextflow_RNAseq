@@ -4,7 +4,7 @@
 *  Quantify read alignments with featureCounts
 */
 
-process featureCounts {
+process FEATURECOUNTS {
 
     container "community.wave.seqera.io/library/subread:2.0.8--2d7f922ff219454e"
 

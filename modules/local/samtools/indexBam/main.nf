@@ -1,10 +1,10 @@
 #!/usr/bin/env nextflow
 
 /*
-* Convert a samfile to a bam file
+* Sort and index an input bam file using samtools
 */
 
-process indexBam {
+process INDEXBAM {
 
     container "community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7751c"
     
