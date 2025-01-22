@@ -12,15 +12,12 @@ process alignFile {
 
     input:
 	tuple (val(fastq_name), path(input_fastq))
-	path refFile
-	tuple (path(b1), path(b2), path(b3), path(b4))
-	tuple (path(brev1), path(brev2)
-)
+	path(refFile)
     output:
 	path "*.sam"
 
     script:
     """
-    bowtie2 -x ${projectDir}/results/ref/refFile -1 ${input_fastq[0]} -2 ${input_fastq[1]} > ${fastq_name}.sam 
+    bowtie2 -x ${refFile}/refFile -1 ${input_fastq[0]} -2 ${input_fastq[1]} > ${fastq_name}.sam 
     """
 }

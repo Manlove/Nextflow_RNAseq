@@ -14,10 +14,11 @@ process indexBam {
 	path bamFile
 
     output:
-	tuple  (path("*.bam.bai"), path(bamFile))
+	tuple (path("${bamFile.baseName}_sorted.bam.bai"), path("${bamFile.baseName}_sorted.bam"))
 
     script:
     """
-    samtools index ${bamFile}
+    samtools sort ${bamFile} >  ${bamFile.baseName}_sorted.bam
+    samtools index ${bamFile.baseName}_sorted.bam
     """
 }
