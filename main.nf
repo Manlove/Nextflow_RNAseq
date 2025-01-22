@@ -16,6 +16,6 @@ workflow {
 	sam2bam(alignFile.out)
 	indexBam(sam2bam.out)
 	
-	bamFiles = indexBam.out.map{_,bam -> bam }.collect().view() 
+	bamFiles = indexBam.out.map{_,bam -> bam }.collect() 
 	featureCounts(params.gtfFile, bamFiles)
 }

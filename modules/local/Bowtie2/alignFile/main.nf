@@ -8,7 +8,7 @@ process alignFile {
 
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
     
-    publishDir "$params.outdir/BAM", mode: 'copy'
+//    publishDir "$params.outdir/BAM", mode: 'copy'
 
     input:
 	tuple (val(fastq_name), path(input_fastq))
